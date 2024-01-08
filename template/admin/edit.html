@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+        }
+
+        tr {
+            margin-bottom: 10px;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1>Edit Page</h1> -->
+    <form method="post" action="{% url 'edit_details' students.id %}">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td><input type="text" placeholder="Enter Name" name="name" value="{{ students.student_name }}" required></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="address" placeholder="Enter Address" value="{{ students.student_address }}" required></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="age" placeholder="Enter Age" value="{{ students.student_age }}" required></td>
+            </tr>
+            <tr>
+                <td><input type="date" name="jdate" placeholder="Joining Date" value="{{ students.joining_date | date:'Y-m-d' }}" required></td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="sel" required>
+                        {% for c in courses %}
+                            {% if c.id == students.course.id %}
+                                <option value="{{ c.id }}" selected>{{ c.course_name }}</option>
+                            {% else %}
+                                <option value="{{ c.id }}">{{ c.course_name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="submit" value="EDIT"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

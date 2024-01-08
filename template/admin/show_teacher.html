@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Table</title>
+    
+
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyWz53ti9PqEjL1tHDO/EQ1IpF9tu8c2M4u" crossorigin="anonymous">
+</head>
+<body style="background-color: #f8f9fa;">
+
+    <div class="container mt-5">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Age</th>
+                    <th>Contact Number</th>
+                    <th>Images</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in user %}
+                <tr>
+                    <td>{{ t.user.first_name }}</td>
+                    <td>{{ t.user.last_name }}</td>
+                    <td>{{ t.user.username }}</td>
+                    <td>{{ t.user.email }}</td>
+                    <td>{{ t.address }}</td>
+                    <td>{{ t.age }}</td>
+                    <td>{{ t.number }}</td>
+                    <td>
+                        <img src="{{ t.image.url }}" class="img-fluid" alt="User Image" style="max-width: 100px; height: auto;">
+                    </td>
+                    <td>
+                        <a href="{% url 'delete' t.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Link Bootstrap JS (Optional: If you need Bootstrap JavaScript features) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js" integrity="sha384-LpIF4K3p/cV47lTC5PI2A0ZmaoYi7fcPz/W9lwnACqBIq/Ga2yWEGkgvcE5qgAam" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyWz53ti9PqEjL1tHDO/EQ1IpF9tu8c2M4u" crossorigin="anonymous"></script>
+

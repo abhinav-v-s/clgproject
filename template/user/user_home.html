@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyWz53ti9PqEjL1tHDO/EQ1IpF9tu8c2M4u" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        nav {
+            background-color: #007bff;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .signup-button {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background-color: #dc3545;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .image-link {
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            color: #343a40;
+        }
+
+        .image-link:hover {
+            color: #007bff;
+        }
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-label {
+            margin-top: 10
+        }
+
+        .row {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a class="signup-button" href="{% url 'admin_logout' %}">Logout</a>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a class="image-link" href="{% url 'edit' pk=user.pk %}">
+                    <img src="{% static 'images/teach1.jpg' %}" alt="Edit Profile" class="img-fluid">
+                    <div class="image-label">Edit Profile</div>
+                </a>
+            </div>
+
+            <div class="col-md-6">
+                <a class="image-link" href="{% url 'profile' %}">
+                    <img src="{% static 'images/two.jpg' %}" alt="See Profile" class="img-fluid">
+                    <div class="image-label">See Profile</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

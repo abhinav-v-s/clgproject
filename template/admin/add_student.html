@@ -1,0 +1,119 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Add Student </h1>
+    <table>
+        <form method="post" action="{% url 'add_studentdb' %}">
+            {% csrf_token %}
+            <tr>
+                <td><input type="text" placeholder="Enter Name" name="name"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="address" placeholder="Enter Address"></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="age" placeholder="Enter Age"></td>
+            </tr>
+            <tr>
+                <td><input type="date" name="jdate" placeholder="Joining Date"></td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="sel">
+                        {% for c in course %}
+                        <option value="{{c.id}}">{{ c.course_name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="submit"></td>
+            </tr>
+        </form>
+    </table>
+</body> 
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">ABC College</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Add Course</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Show Student Details</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Show Teacher Details</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="{% url 'admin_logout' %}">Logout</a>
+                  </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+    <div class="container mt-5">
+        <h1 class="text-center">Add Student</h1>
+        <form method="post" action="{% url 'add_studentdb' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address:</label>
+                <input type="text" class="form-control" id="address" placeholder="Enter Address" name="address" required>
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Age:</label>
+                <input type="number" class="form-control" id="age" placeholder="Enter Age" name="age" required>
+            </div>
+            <div class="mb-3">
+                <label for="jdate" class="form-label">Joining Date:</label>
+                <input type="date" class="form-control" id="jdate" placeholder="Joining Date" name="jdate" required>
+            </div>
+            <div class="mb-3">
+                <label for="sel" class="form-label">Select Course:</label>
+                <select class="form-select" id="sel" name="sel" required>
+                    {% for c in course %}
+                        <option value="{{c.id}}">{{ c.course_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-cgZV5XOpbldyBwA/W1AnxCt4sBqDQfvgFjW91+8A5u3eGh8St5HDvISeEd3XvnlJ" crossorigin="anonymous"></script>
+</body>
+</html>

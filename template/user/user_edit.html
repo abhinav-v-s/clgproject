@@ -1,0 +1,70 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Edit User Page</h1>
+        <form method="post" action="{% url 'edit' pk=user.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="fname" class="form-label">First Name:</label>
+                <input type="text" class="form-control" id="fname" name="fname" value="{{ user.user.first_name }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="lname" class="form-label">Last Name:</label>
+                <input type="text" class="form-control" id="lname" name="lname" value="{{ user.user.last_name }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="uname" class="form-label">User Name:</label>
+                <input type="text" class="form-control" id="uname" name="uname" value="{{ user.user.username }}" required>
+            </div>
+
+            <!-- <div class="mb-3">
+                <label for="password" class="form-label">New Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div> -->
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ user.user.email }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="age" class="form-label">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" value="{{ user.age }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="address" class="form-label">Address:</label>
+                <input type="text" class="form-control" id="address" name="address" value="{{ user.address }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="number" class="form-label">Contact Number:</label>
+                <input type="text" class="form-control" id="number" name="number" value="{{ user.number }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="file" class="form-label">Upload Photo:</label>
+                <input type="file" class="form-control" id="file" name="file" accept="image/*">
+            </div>
+
+            <button type="submit" class="btn btn-primary">EDIT</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-cgZV5XOpbldyBwA/W1AnxCt4sBqDQfvgFjW91+8A5u3eGh8St5HDvISeEd3XvnlJ" crossorigin="anonymous"></script>
+</body>
+</html>

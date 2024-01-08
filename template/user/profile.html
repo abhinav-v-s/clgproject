@@ -1,0 +1,97 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Teacher Details</h1>
+
+    {% for user in users %}
+        <div class="teacher-card">
+            <img src="{{ user.image.url }}" alt="{{ user.user.username }}" class="teacher-image">
+
+            <div class="teacher-details">
+                <h2>{{ user.user.first_name }} {{ user.user.last_name }}</h2>
+                <p>Username: {{ user.user.username }}</p>
+                <p>Email: {{ user.user.email }}</p>
+                <p>Address: {{ user.address }}</p>
+                <p>Age: {{ user.age }}</p>
+                <p>Mobile: {{ user.number }}</p>
+                <p>Course: {{ user.course.course_name }}</p>
+            </div>
+
+            <a href="{% url 'user_home' %}" class="btn btn-primary">Go back to User Home</a>
+        </div>
+    {% endfor %}
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .teacher-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .teacher-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .teacher-details h2 {
+            margin-bottom: 10px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">Teacher Details</h1>
+
+        {% for user in users %}
+            <div class="teacher-card">
+                <img src="{{ user.image.url }}" alt="{{ user.user.username }}" class="teacher-image">
+
+                <div class="teacher-details">
+                    <h2>{{ user.user.first_name }} {{ user.user.last_name }}</h2>
+                    <p>Username: {{ user.user.username }}</p>
+                    <p>Email: {{ user.user.email }}</p>
+                    <p>Address: {{ user.address }}</p>
+                    <p>Age: {{ user.age }}</p>
+                    <p>Mobile: {{ user.number }}</p>
+                    <p>Course: {{ user.course.course_name }}</p>
+                </div>
+
+                <a href="{% url 'user_home' %}" class="btn btn-primary">Go back to User Home</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-cgZV5XOpbldyBwA/W1AnxCt4sBqDQfvgFjW91+8A5u3eGh8St5HDvISeEd3XvnlJ" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+   
+
+    <div class="image-container">
+        <a class="image-link" href="{% url 'add_course' %}">
+            <img src="{% static 'images/add_course.jpg' %}" alt="Add Course" width="150">
+            <div class="image-label">Add Course</div>
+        </a>
+
+        <a class="image-link" href="{% url 'add_student' %}">
+            <img src="{% static 'images/student.jpg' %}" alt="Add Student" width="150">
+            <div class="image-label">Add Student</div>
+        </a>
+
+        <a class="image-link" href="{% url 'show_teacher' %}">
+            <img src="{% static 'images/teacher.jpg' %}" width="150">
+            <div class="image-label">Show Teachers</div>
+        </a>
+
+        <a class="image-link" href="{% url 'show_details' %}">
+            <img src="{% static 'images/teach1.jpg' %}" width="150">
+            <div class="image-label">Show Students</div>
+        </a>
+    </div>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <a class="image-link" href="{% url 'add_course' %}">
+                    <img src="{% static 'images/add_course.jpg' %}" class="card-img-top" alt="Add Course">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Course</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <a class="image-link" href="{% url 'add_student' %}">
+                    <img src="{% static 'images/student.jpg' %}" class="card-img-top" alt="Add Student">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Student</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <a class="image-link" href="{% url 'show_teacher' %}">
+                    <img src="{% static 'images/teacher.jpg' %}" class="card-img-top" alt="Show Teachers">
+                    <div class="card-body">
+                        <h5 class="card-title">Show Teachers</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <a class="image-link" href="{% url 'show_details' %}">
+                    <img src="{% static 'images/teach1.jpg' %}" class="card-img-top" alt="Show Students">
+                    <div class="card-body">
+                        <h5 class="card-title">Show Students</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
